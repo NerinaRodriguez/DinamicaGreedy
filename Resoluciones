@@ -1,5 +1,6 @@
 Ejercicio 12: Resolución Dinámica
-a)	d([ ],[ ]) = 0 ya que, al ser ambas cadenas vacías podemos decir que son iguales, por lo tanto, no debe aplicarse ninguna operación para igualarlas. 
+a)
+d([ ],[ ]) = 0 ya que, al ser ambas cadenas vacías podemos decir que son iguales, por lo tanto, no debe aplicarse ninguna operación para igualarlas. 
 
 d(s1,[ ]) = longitud(s1) ya que deben aplicarse tantos borrados como caracteres tenga la cadena s1 para que sea vacía.
 
@@ -46,7 +47,7 @@ END;
 RETURN OB[m,n]
 END Cadena; 
 
-El problema es que esto es muy lento cuando se compara una cadena larga con una corta.
+El problema es que esto es muy lento cuando se compara una cadena larga con una corta. (PREGUNTAR SI ESTE ES EL CAMINO CORRECTO Y SI ESTA BIEN LA IMPLEMENTACION) ¿? ¿? ¿?
 
 Finalmente, agregaremos al principio de la implementación anterior la optimización de velocidad para que mejor el tiempo de orden exponencial O(mn). En resumen, compararemos la longitud de ambas cadenas y reduciremos la longitud de la más larga a la misma longitud que la más corta, incrementando el costo en la diferencia de longitud entre ambas (la cantidad de caracteres que se eliminaron), reduciendo el problema a trabajar con 2 cadenas de igual longitud. La implementación finalmente quedaría de la siguiente manera:
 
