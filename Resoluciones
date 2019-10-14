@@ -18,3 +18,24 @@ levenshtein s1 s2
 
 
 Ejercicio 6: Resolución Greedy
+
+IMPLEMENTACION EN C:
+
+      void ejGreedy(int paradas[], int k, int l) {
+
+         int i = 0, saltos = 0, ultpos = 0;
+
+         while (i < l) {
+            ultpos = i;
+
+            while ((i < l) && (paradas[i + 1] - paradas[ultpos] <= k)) {
+               i++;
+            }
+
+            if (i<=l) {
+               saltos++;
+            }
+         }
+
+         printf("saltos: %d", saltos);
+      }
