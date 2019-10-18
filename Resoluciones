@@ -88,6 +88,17 @@ levenshtein s1 s2 | último s1 == último s2 = levenshtein ( init s1 ) ( init s2
      
         s2 ) ,
                           1  + levenshtein ( init s1 )  ( init s2 ) ]
+			  
+			  
+
+levenshtein::String->String->Int
+levenshtein s t = 
+    d!!(length s)!!(length t) 
+    where d = [[distance m n|n<-[0..length t]]|m<-[0..length s]]
+          distance i 0 = i
+          distance 0 j = j
+          distance i j = minimum [d!!(i-1)!!j+1, d!!i!!(j-1)+1, d!!(i-1)!!(j-1) + (if s!!(i-1)==t!!(j-1) then 0 else 1)]
+	  
 
 c)	Este algoritmo, como ya dijimos, guarda todos los datos en memoria, incluso los que ya no hacen falta porque no volverá a utilizarse. Por esta razón, es posible mejorar su orden de complejidad espacial:
 Como hemos visto, los datos que realmente hacen falta para calcular un nuevo costo son solamente estos 3 valores: OB [i, j-1], OB [i-1, j], y OB [i-1, j-1]. Estos valores pueden ser guardados en las variables x, y, z respectivamente y ser modificados a medida que el algoritmo vaya avanzando sobre las cadenas. De este modo, cuando el algoritmo llegue a su fin, no quedará guardada toda la tabla de valores en la memoria, sino que solo quedará registro de las variables x, y, z, con los últimos valores que adquirieron.
